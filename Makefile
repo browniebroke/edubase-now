@@ -21,6 +21,9 @@ build: $(DB_FILE)  ## Pre-build the required assets
 serve: $(DB_FILE)  ## Serve the dataset in your browser
 	datasette serve $(DB_FILE)
 
+deploy: $(DB_FILE)  ## Deploy to Heroku
+	datasette publish heroku $(DB_FILE)
+
 help: ## Display this help message
 	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | \
 		sort | \
